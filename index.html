@@ -1,71 +1,122 @@
 <!DOCTYPE html>
 <html>
-    <head><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-</head>
-<body>
-<h1>Hello World</h1>
-<p>Welcom to livechat.</p>
-<style type='text/css'>
-	.embeddedServiceHelpButton .helpButton .uiButton {
-		background-color: #005290;
-		font-family: "Arial", sans-serif;
-	}
-	.embeddedServiceHelpButton .helpButton .uiButton:focus {
-		outline: 1px solid #005290;
-	}
-</style>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
 
-<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-<script type='text/javascript'>
-	var initESW = function(gslbBaseURL) {
-		embedded_svc.settings.displayHelpButton = true; //Or false
-		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+      .topnav {
+        overflow: hidden;
+        background-color: #333;
+      }
 
-		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
-		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+      .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
 
-		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
-		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+      .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
 
-		// Settings for Chat
-		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
-			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
-			// Returns a valid button ID.
-		//};
-		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
-		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
-		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+      /* Create a right-aligned (split) link inside the navigation bar */
+      .topnav a.split {
+        float: right;
+        background-color: #04aa6d;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topnav">
+      <a class="active" href="#home">Home</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <a href="#about" class="split">Help</a>
+    </div>
+    <h1>Hello World</h1>
+    <p>Welcom to livechat.</p>
+    <style type="text/css">
+      .embeddedServiceHelpButton .helpButton .uiButton {
+        background-color: #005290;
+        font-family: "Arial", sans-serif;
+      }
+      .embeddedServiceHelpButton .helpButton .uiButton:focus {
+        outline: 1px solid #005290;
+      }
+    </style>
 
-		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-		embedded_svc.settings.entryFeature = 'LiveAgent';
+    <script
+      type="text/javascript"
+      src="https://service.force.com/embeddedservice/5.0/esw.min.js"
+    ></script>
+    <script type="text/javascript">
+      var initESW = function (gslbBaseURL) {
+        embedded_svc.settings.displayHelpButton = true; //Or false
+        embedded_svc.settings.language = ""; //For example, enter 'en' or 'en-US'
 
-		embedded_svc.init(
-			'https://fcaemea--uat.sandbox.my.salesforce.com',
-			'https://fcaemea--uat.sandbox.my.site.com/homologationtemplate2',
-			gslbBaseURL,
-			'00D1w0000000eoU',
-			'CC_EM_Customer_Care_Chat_UK_English',
-			{
-				baseLiveAgentContentURL: 'https://c.la1-c1cs-fra.salesforceliveagent.com/content',
-				deploymentId: '5720X0000000HMs',
-				buttonId: '5730X0000000I2U',
-				baseLiveAgentURL: 'https://d.la1-c1cs-fra.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I0X000000bljLUAQ_16b8883d9f4',
-				isOfflineSupportEnabled: false
-			}
-		);
-	};
+        //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+        //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
 
-	if (!window.embedded_svc) {
-		var s = document.createElement('script');
-		s.setAttribute('src', 'https://fcaemea--uat.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-		s.onload = function() {
-			initESW(null);
-		};
-		document.body.appendChild(s);
-	} else {
-		initESW('https://service.force.com');
-	}
-</script>
-</body>
+        //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+        //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+        // Settings for Chat
+        //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+        // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+        // Returns a valid button ID.
+        //};
+        //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+        //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+        //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+        embedded_svc.settings.enabledFeatures = ["LiveAgent"];
+        embedded_svc.settings.entryFeature = "LiveAgent";
+
+        embedded_svc.init(
+          "https://fcaemea--uat.sandbox.my.salesforce.com",
+          "https://fcaemea--uat.sandbox.my.site.com/homologationtemplate2",
+          gslbBaseURL,
+          "00D1w0000000eoU",
+          "CC_EM_Customer_Care_Chat_UK_English",
+          {
+            baseLiveAgentContentURL:
+              "https://c.la1-c1cs-fra.salesforceliveagent.com/content",
+            deploymentId: "5720X0000000HMs",
+            buttonId: "5730X0000000I2U",
+            baseLiveAgentURL:
+              "https://d.la1-c1cs-fra.salesforceliveagent.com/chat",
+            eswLiveAgentDevName:
+              "EmbeddedServiceLiveAgent_Parent04I0X000000bljLUAQ_16b8883d9f4",
+            isOfflineSupportEnabled: false,
+          }
+        );
+      };
+
+      if (!window.embedded_svc) {
+        var s = document.createElement("script");
+        s.setAttribute(
+          "src",
+          "https://fcaemea--uat.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js"
+        );
+        s.onload = function () {
+          initESW(null);
+        };
+        document.body.appendChild(s);
+      } else {
+        initESW("https://service.force.com");
+      }
+    </script>
+  </body>
 </html>
